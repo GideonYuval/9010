@@ -95,7 +95,7 @@ namespace _9010
         }
         private static int alternatingDigitsSum(int num) //return sum of odd-indexed digits
         {
-            return false;
+            return 0;
 
         }
 
