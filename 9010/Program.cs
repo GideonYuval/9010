@@ -65,21 +65,18 @@ namespace _9010
 
         }
 
-        static bool is2power2(int n) //Dafna
-        {
-            return false;
 
-        }
         //6
         // param: 2 positive numbers
         // return: n is divided by m
         // use only +/-
         // n=8 m=2 true
         // n=8 m=3 false
-        public static bool isDevided(int n, int m)
+        public static bool isDivided(int n, int m)
         {
-            return false;
-
+            if (n == 0) return true;
+            if (n < m) return false;
+            return isDivided((n - m), m);
         }
         //7
         // param: positive number
@@ -88,15 +85,14 @@ namespace _9010
         //note - The divisibility by 11 rule states that if the difference between the sum of the digits at odd
         //places and the sum of the digits at even places of the number, is 0 or divisible by 11
         //then the given number is also divisible by 11.
-        //check different solution by Dafna
         public static bool divisibleBy11(int num)
         {
-            return false;
+            return alternatingDigitsSum(num) == alternatingDigitsSum(num / 10);
         }
         private static int alternatingDigitsSum(int num) //return sum of odd-indexed digits
         {
-            return 0;
-
+            if (num == 0) return 0;
+            return num % 10 + alternatingDigitsSum(num / 100);
         }
 
         //8
@@ -104,17 +100,17 @@ namespace _9010
         // return: true n is prime number
         // n=7, 29 true
         // n=1568 false
-        //note - take Dafan's solution instead of this!
         public static bool isPrime(int n) // handle base cases
         {
-            return false;
-
+            int sqrt = (int)Math.Sqrt(n);
+            return isPrime(n, sqrt);
         }
 
         public static bool isPrime(int n, int m)
         {
-            return false;
-
+            if (m == 1) return true; //didn't find divisor, so prime
+            if (n % m == 0) return false; //did find divisor
+            return isPrime(n, m - 1); //make the divisor smaller by one
 
         }
         //9
@@ -124,8 +120,9 @@ namespace _9010
         // n=1351  false        
         static bool ExistEven(int n)
         {
-            return false;
-
+            if (n == 0) return false;
+            if (n % 2 == 0) return true;
+            return ExistEven(n / 10);
 
         }
 
@@ -136,8 +133,11 @@ namespace _9010
         // n=1351  true  
         static bool AllEven(int n)
         {
-            return false;
-
+            if (n == 0) return true;
+            if (n % 2 != 0) return false;
+            return AllEven(n / 10);
         }
     }
+
 }
+
