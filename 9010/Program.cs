@@ -38,7 +38,9 @@ namespace _9010
         // return: true if Digits Descending Order
         // n=97532 true
         // n=96482 false
-        // n=97533 false 
+        // n=97533 false
+        // n = 9   true
+
         public static bool isDigitsDescendingOrder(int n)
         {
             return false;
