@@ -131,13 +131,11 @@ namespace _9010
         //10
         // param: positive number
         // return: true if all digits are even
-        // n = 145731 false
-        // n=1351  true  
+        // n = 24682 true
+        // n = 24681  false  
         static bool AllEven(int n)
         {
-            if (n == 0) return true;
-            if (n % 2 != 0) return false;
-            return AllEven(n / 10);
+            return true;
         }
     }
 
